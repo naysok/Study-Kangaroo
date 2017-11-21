@@ -1,12 +1,14 @@
 
 
-Flag-Wind.ghx :
+Flag-Wind.ghx : wind,
 
 
 ---  
 
 ## Kangaroo1  
 
+
+---  
 
 ## Kangaroo2  
 
@@ -16,9 +18,9 @@ Flag-Wind.ghx :
 - Length(Line)  
 
 #### Main  
-- Solver(bouncy)  
-- Solver  
-- Show
+- Solver : Goal をまとめて計算  / GoalObjects  
+- Solver(bouncy) : Solver with momentum(弾力、弾み) / GoalObjects  
+- Show  
 
-#### ?
-- Wind :Setting Wind : Mesh/ WindVector
+#### ?  
+- Wind : Setting Wind / Mesh, WindVector  
