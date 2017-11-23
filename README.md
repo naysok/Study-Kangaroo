@@ -1,11 +1,8 @@
-
 Bending.ghx  
 Catenary.ghx  
 CirclePacking-OnSurface.ghx  
 ClampLength.ghx  
 Flag-Wind.ghx : wind sim  
-
-
 
 ---  
 
