@@ -1,7 +1,8 @@
 
-Bending.ghx :  
-Catenary.ghx :  
+Bending.ghx  
+Catenary.ghx  
 CirclePacking-OnSurface.ghx  
+ClampLength.ghx  
 Flag-Wind.ghx : wind sim  
 
 
@@ -18,6 +19,8 @@ Flag-Wind.ghx : wind sim
 #### Goals  
 - Anchor : Set Anchor / AnchorPoint  
 - Angle : Set Angle / RestAngle = 最終の角度  
+- ClampLength : Keep Length in Range / Line, LowerLimit, UpperLimit  
+- Direction :  
 - Length(Line) : Set Length  / Line  
 - Load : Set Force Vector / ForceVector  
 - OnMesh : Keeping Pt on Mesh / Point, Mesh  
