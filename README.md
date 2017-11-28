@@ -8,9 +8,14 @@ ClampLength.ghx
 Collision-Balloon.ghx : SolidPointCollide  
 Flag-Wind.ghx : wind sim  
 
+Tensegrity-1.ghx : (Kangaroo1)
+Tensegrity-2.ghx : (Kangaroo1)
+
 ---  
 
 ## Kangaroo1  
+
+
 
 
 ---  
@@ -23,10 +28,13 @@ Flag-Wind.ghx : wind sim
 - Angle : Set Angle / RestAngle = 最終の角度  
 - ClampLength : Keep Length in Range / Line, LowerLimit, UpperLimit  
 - Direction :  
+- Floor : xy Plane?  
 - Length(Line) : Set Length  / Line  
 - Load : Set Force Vector / Point, ForceVector  
 - OnMesh : Keeping Pt on Mesh / Point, Mesh  
+- Pressure : A force normal to each triangle / Mesh, Strength   
 - Smooth : Smooth Mesh / Mesh  
+- SolidPointCollide : Keep a set of points outside or inside a given Mesh, Collision / pointList, Solid(brep or Mesh), Strength
 - SphereCollide : Collisions between large numbers of equal sized spheres / Point, Radius  
 
 
@@ -52,7 +60,7 @@ Flag-Wind.ghx : wind sim
 - CrossReference : 相互参照  
 
 ## Display  
-- CreateMaterial : OPENGL material
+- CreateMaterial : OPENGL material, Shader  
   - Kd(Diffuse, 拡散反射光(color))  
   - Ks(Specular, 鏡面反射光(color))  
   - Ke(Emission, 自己発光色(color))  
