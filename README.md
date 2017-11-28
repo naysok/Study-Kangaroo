@@ -8,12 +8,27 @@ ClampLength.ghx
 Collision-Balloon.ghx : SolidPointCollide  
 Flag-Wind.ghx : wind sim  
 
-Tensegrity-1.ghx : (Kangaroo1)
-Tensegrity-2.ghx : (Kangaroo1)
+Tensegrity-1.ghx : (Kangaroo1)  
+Tensegrity-2.ghx : (Kangaroo1)  
 
 ---  
 
 ## Kangaroo1  
+
+#### Kangaroo
+- KangarooPhysics : Kangaroo Physics Engine v0.099  
+  - ForceObject  
+  - AnchorPoits  
+  - Setting  
+  - Geometry　： Geometry to trasform    
+  - SimulationReset : toggle
+
+- KangarooSetting : Setting  
+
+#### Forces  
+- SpringFromLine : Create Hooke's law springs(フックの法則)　　
+- unaryForce : Set a vector force / Point, Vector   
+
 
 
 
