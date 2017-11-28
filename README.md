@@ -52,4 +52,9 @@ Flag-Wind.ghx : wind sim
 - CrossReference : 相互参照  
 
 ## Display  
-- CreateMaterial : OPENGL material / Kd(Diffuse, 拡散反射光(color)), Ks(Specular, 鏡面反射光(color)), Ke(Emission, 自己発光色(color)), T(Transparency, 透明度(0.0 to 1.0)) , S(Shine, 光沢(0 to 100))  
+- CreateMaterial : OPENGL material
+  - Kd(Diffuse, 拡散反射光(color))  
+  - Ks(Specular, 鏡面反射光(color))  
+  - Ke(Emission, 自己発光色(color))  
+  - T(Transparency, 透明度(0.0 to 1.0))   
+  - S(Shine, 光沢(0 to 100))  
