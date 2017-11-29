@@ -6,8 +6,8 @@ Catenary2.ghx : LoadVertex
 CirclePacking-OnSurface.ghx  
 ClampLength.ghx  
 Collision-Balloon.ghx : SolidPointCollide  
+Collision-CircleFill.ghx : Collider  
 Flag-Wind.ghx : wind sim  
-
 Tensegrity-1.ghx : (Kangaroo1)  
 Tensegrity-2.ghx : (Kangaroo1)  
 
@@ -17,16 +17,16 @@ Tensegrity-2.ghx : (Kangaroo1)
 
 #### Kangaroo
 - KangarooPhysics : Kangaroo Physics Engine v0.099  
-  - ForceObject  
+  - ForceObject : Collide
   - AnchorPoits  
   - Setting  
-  - Geometry　： Geometry to trasform    
+  - Geometry ： Geometry to trasform    
   - SimulationReset : toggle
 
 - KangarooSetting : Setting  
 
 #### Forces  
-- SpringFromLine : Create Hooke's law springs(フックの法則)　　
+- SpringFromLine : Create Hooke's law springs(フックの法則)  
 - unaryForce : Set a vector force / Point, Vector   
 
 
