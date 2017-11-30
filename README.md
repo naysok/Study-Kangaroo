@@ -1,12 +1,14 @@
 Bending.ghx  
-Bending-Rod.ghx;: Rod  
+Bending-Rod.ghx : Rod  
 Catenary.ghx : Load  
 Catenary_slide.ghx : LoadVertex  
 Catenary2.ghx : LoadVertex  
-CirclePacking-OnSurface.ghx  
+CirclePacking-OnSurface.ghx : Load,   
 ClampLength.ghx  
-Collision-Balloon.ghx : SolidPointCollide  
+Collision-Balloon.ghx : SolidPointCollide, Pressure, Floor  
 Collision-CircleFill.ghx : Collider  
+Collision-Cloth-inflatable.ghx : SphereCollide, Floor, Volume, CombineAndClean  
+Collision-Curve-X-Particle-2d.ghx : curvePointCollide, Load  
 Flag-Wind.ghx : wind sim  
 Tensegrity-1.ghx : (Kangaroo1)  
 Tensegrity-2.ghx : (Kangaroo1)  
@@ -29,6 +31,8 @@ Tensegrity-2.ghx : (Kangaroo1)
 - SpringFromLine : Create Hooke's law springs(フックの法則)  
 - unaryForce : Set a vector force / Point, Vector   
 
+#### Mesh  
+- CombineAndClean : Combine and Clean a list of meshes, removing unused and duplicate  
 
 
 
@@ -42,6 +46,7 @@ Tensegrity-2.ghx : (Kangaroo1)
 - AnchorXYZ : Set AnchorXYZ / AnchorPoint, X(bool), Y(bool), Z(bool)  
 - Angle : Set Angle / RestAngle = 最終の角度  
 - ClampLength : Keep Length in Range / Line, LowerLimit, UpperLimit  
+- Collider : Collisions between thickened line segments and spheres  
 - Direction :  
 - Floor : xy Plane?  
 - Length(Line) : Set Length  / Line  
@@ -60,21 +65,26 @@ Tensegrity-2.ghx : (Kangaroo1)
 - Show : Show  
 
 #### ?  
-- Wind : Setting Wind / Mesh, WindVector  
 - Rod : Resistant rod, Angle に似てる  
 - LoadVertex : Load に近い / Mesh, Strength(上or下)  
 - EdgeLength : Set edge length / Mesh  
+- Volume : set volume  
+- Wind : Setting Wind / Mesh, WindVector  
+- CombineAndClean : Combine and Clean a list of meshes, removing unused and duplicate  
 
 
 ---  
 
-## Math  
+
+## Grasshopper Components  
+
+## ## Math  
 - Entwine : Flatten and combine a collection of data streams  
 
-## Set  
+#### Set  
 - CrossReference : 相互参照  
 
-## Display  
+#### Display  
 - CreateMaterial : OPENGL material, Shader  
   - Kd(Diffuse, 拡散反射光(color))  
   - Ks(Specular, 鏡面反射光(color))  
