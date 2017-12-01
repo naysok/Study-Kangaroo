@@ -1,3 +1,5 @@
+Sample Files  
+
 Bending.ghx  
 Bending-Rod.ghx : Rod  
 Catenary.ghx : Load  
@@ -11,8 +13,11 @@ Collision-Cloth-inflatable.ghx : SphereCollide, Floor, Volume, CombineAndClean
 Collision-Curve-X-Particle-2d.ghx : curvePointCollide, Load  
 Curve-to-Balloon.ghx : MeshMachine, Peressure, Anchor  
 Flag-Wind.ghx : wind sim  
+Inflation.ghx : Pressure,LineLength, 膨らむ  
 MeshMachine-01.ghx : MeshMachine, removeDuplicatePts, Sequence  
+MeshMap-Morphing.ghx : MeshMap  
 Kangaroo1-vs-Kangaroo2.ghx : MeshCourners, SpringFromLine, unaryForce, StepSolover  
+Polygon-MagnetSnap.ghx : MagnetSnap  
 Tensegrity-1.ghx : (Kangaroo1)  
 Tensegrity-2.ghx : (Kangaroo1)  
 
@@ -52,7 +57,7 @@ Tensegrity-2.ghx : (Kangaroo1)
   - Geom (input geometry surf or mesh)  
   - FixV (Points to keep fixed during remeshing 外形など)  
   - Reset (Sequence = 10??)  
-
+- MeshMap :  Morphing / M1(SourceMesh), M2(TargetMesh), P(Vertices of mesh to transform)  
 
 
 
@@ -76,6 +81,7 @@ Tensegrity-2.ghx : (Kangaroo1)
 - Floor : xy Plane?  
 - Length(Line) : Set Length  / Line  
 - Load : Set Force Vector / Point, ForceVector  
+- MagnetSnap : Snap Points togetther according to proximity / Points, Renge(snapable length)  
 - OnMesh : Keeping Pt on Mesh / Point, Mesh  
 - OnPlane : Keep a point on a given plane / Point, Plane  
 - Pressure : A force normal to each triangle / Mesh, Strength   
@@ -130,6 +136,7 @@ Tensegrity-2.ghx : (Kangaroo1)
 
 #### Set  
 - CrossReference : 相互参照  
+- Clean Tree :
 
 #### Display  
 - CreateMaterial : OPENGL material, Shader  
