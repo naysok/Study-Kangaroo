@@ -2,6 +2,7 @@ Sample Files
 
 Bending.ghx  
 Bending-Rod.ghx : Rod  
+Boxes-Mechanism.ghx : RigidBody  
 Catenary.ghx : Load  
 Catenary_slide.ghx : LoadVertex  
 Catenary2.ghx : LoadVertex  
@@ -14,10 +15,15 @@ Collision-Curve-X-Particle-2d.ghx : curvePointCollide, Load
 Curve-to-Balloon.ghx : MeshMachine, Peressure, Anchor  
 Flag-Wind.ghx : wind sim  
 Inflation.ghx : Pressure,LineLength, 膨らむ  
+Man.ghx : 身体リグ  
+Mechanical-Assembly.ghx : AlignFaces, Concentric  
 MeshMachine-01.ghx : MeshMachine, removeDuplicatePts, Sequence  
 MeshMap-Morphing.ghx : MeshMap  
 Kangaroo1-vs-Kangaroo2.ghx : MeshCourners, SpringFromLine, unaryForce, StepSolover  
 Polygon-MagnetSnap.ghx : MagnetSnap  
+RigidBody-Balance.jpg : RigitBody, SolidPlaneCollide  
+Simple-Tent-JH.ghx : load, anchor, length   
+Strand-Beest.ghx : Trail, counter  
 Tensegrity-1.ghx : (Kangaroo1)  
 Tensegrity-2.ghx : (Kangaroo1)  
 
@@ -40,6 +46,7 @@ Tensegrity-2.ghx : (Kangaroo1)
 
 - KangarooSetting : Setting  
 - Sequence : Connect to the Reset input to output a time sequence of the simulation / Frame  
+- counter : Connect a Timer to this and it increments by 1 with every update, + Timer  
 
 
 #### Forces  
@@ -49,6 +56,9 @@ Tensegrity-2.ghx : (Kangaroo1)
 
 ####  Utility  
 - MeshCourners : Finds the corners of the boundary of a mesh  
+- Trail : Draw a trail of a point's motion (trail 軌跡) / Point, Record(bool)  
+
+
 
 
 #### Mesh  
@@ -84,8 +94,9 @@ Tensegrity-2.ghx : (Kangaroo1)
 - MagnetSnap : Snap Points togetther according to proximity / Points, Renge(snapable length)  
 - OnMesh : Keeping Pt on Mesh / Point, Mesh  
 - OnPlane : Keep a point on a given plane / Point, Plane  
-- Pressure : A force normal to each triangle / Mesh, Strength   
-- Smooth : Smooth Mesh / Mesh  
+- Pressure : A force normal to each triangle / Mesh, Strength  
+- RigidBody : RigidBody / Part(Mesh)  
+- Smooth : Smooth Mesh / Mesh, RB(output)  
 - SolidPointCollide : Keep a set of points outside or inside a given Mesh, Collision / pointList, Solid(brep or Mesh), Strength  
 - SphereCollide : Collisions between large numbers of equal sized spheres / Point, Radius  
 
@@ -99,6 +110,7 @@ Tensegrity-2.ghx : (Kangaroo1)
 
 
 #### ?  
+- AlignFaces : align faces of a pair of rigid body  
 - Rod : Resistant rod, Angle に似てる  
 - LoadVertex : Load に近い / Mesh, Strength(上or下)  
 - EdgeLength : Set edge length / Mesh  
@@ -106,6 +118,8 @@ Tensegrity-2.ghx : (Kangaroo1)
 - Wind : Setting Wind / Mesh, WindVector  
 - CombineAndClean : Combine and Clean a list of meshes, removing unused and duplicate  
 - removeDuplicatePts : Removes Similar points from a list / P(List of points to clean)  
+- Concentric : align axis of a pair of rigid body  
+- SolidPlaneCollide : Collision between a plane and a solid  
 
 
 
@@ -135,8 +149,11 @@ Tensegrity-2.ghx : (Kangaroo1)
 
 
 #### Set  
+- Clean Tree : remove all "null" and invalid items from a data tree / T(DataTree)  
 - CrossReference : 相互参照  
-- Clean Tree :
+- Cull Index : cull(remove) indexed elements from a list  
+
+
 
 #### Display  
 - CreateMaterial : OPENGL material, Shader  
