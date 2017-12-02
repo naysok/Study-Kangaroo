@@ -1,6 +1,7 @@
 Sample Files  
 
 Bending.ghx  
+Bending-GridShell.ghx : Angle, Load, OnCurve  
 Bending-Rod.ghx : Rod  
 Boxes-Mechanism.ghx : RigidBody  
 Catenary.ghx : Load  
@@ -13,10 +14,13 @@ Collision-CircleFill.ghx : Collider
 Collision-Cloth-inflatable.ghx : SphereCollide, Floor, Volume, CombineAndClean  
 Collision-Curve-X-Particle-2d.ghx : curvePointCollide, Load  
 Curve-to-Balloon.ghx : MeshMachine, Peressure, Anchor  
+Directional-Stiffness.ghx : Hinge, SolidPointCollide  
+Drape-Grid.ghx : Load, SolidPointCollide, Floor  
 Flag-Wind.ghx : wind sim  
 Inflation.ghx : Pressure,LineLength, 膨らむ  
 Man.ghx : 身体リグ  
 Mechanical-Assembly.ghx : AlignFaces, Concentric  
+Mesh-Shell-Hinge.ghx : HingePoint, Hinge  
 MeshMachine-01.ghx : MeshMachine, removeDuplicatePts, Sequence  
 MeshMap-Morphing.ghx : MeshMap  
 Kangaroo1-vs-Kangaroo2.ghx : MeshCourners, SpringFromLine, unaryForce, StepSolover  
@@ -92,6 +96,7 @@ Tensegrity-2.ghx : (Kangaroo1)
 - Length(Line) : Set Length  / Line  
 - Load : Set Force Vector / Point, ForceVector  
 - MagnetSnap : Snap Points togetther according to proximity / Points, Renge(snapable length)  
+- OnCurve : Keep a point on a given curve  
 - OnMesh : Keeping Pt on Mesh / Point, Mesh  
 - OnPlane : Keep a point on a given plane / Point, Plane  
 - Pressure : A force normal to each triangle / Mesh, Strength  
@@ -111,15 +116,18 @@ Tensegrity-2.ghx : (Kangaroo1)
 
 #### ?  
 - AlignFaces : align faces of a pair of rigid body  
-- Rod : Resistant rod, Angle に似てる  
-- LoadVertex : Load に近い / Mesh, Strength(上or下)  
+- CombineAndClean : Combine and Clean a list of meshes, removing unused and duplicate  
+- Concentric : align axis of a pair of rigid body  
 - EdgeLength : Set edge length / Mesh  
+- Hinge : Hinge  
+- HingePoint : get the 4 points for erch internal edge to use in a hinge force  
+- LoadVertex : Load に近い / Mesh, Strength(上or下)  
+- removeDuplicatePts : Removes Similar points from a list / P(List of points to clean)  
+- Rod : Resistant rod, Angle に似てる  
+- SolidPlaneCollide : Collision between a plane and a solid  
 - Volume : set volume  
 - Wind : Setting Wind / Mesh, WindVector  
-- CombineAndClean : Combine and Clean a list of meshes, removing unused and duplicate  
-- removeDuplicatePts : Removes Similar points from a list / P(List of points to clean)  
-- Concentric : align axis of a pair of rigid body  
-- SolidPlaneCollide : Collision between a plane and a solid  
+
 
 
 
