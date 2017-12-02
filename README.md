@@ -1,5 +1,6 @@
 Sample Files  
 
+Beam-Analysis.gh : Beam, Support, C#  
 Bending.ghx  
 Bending-GridShell.ghx : Angle, Load, OnCurve  
 Bending-Rod.ghx : Rod  
@@ -17,6 +18,7 @@ Curve-to-Balloon.ghx : MeshMachine, Peressure, Anchor
 Directional-Stiffness.ghx : Hinge, SolidPointCollide  
 Drape-Grid.ghx : Load, SolidPointCollide, Floor  
 Flag-Wind.ghx : wind sim  
+G2-Curve.ghx : CoPlaner, G2, Coincident  
 Inflation.ghx : Pressure,LineLength, 膨らむ  
 Man.ghx : 身体リグ  
 Mechanical-Assembly.ghx : AlignFaces, Concentric  
@@ -28,6 +30,7 @@ Polygon-MagnetSnap.ghx : MagnetSnap
 RigidBody-Balance.jpg : RigitBody, SolidPlaneCollide  
 Simple-Tent-JH.ghx : load, anchor, length   
 Strand-Beest.ghx : Trail, counter  
+SplitAtCorners. ghx : SplitAtCorners, MeshCourners, Discontinuity  
 Tensegrity-1.ghx : (Kangaroo1)  
 Tensegrity-2.ghx : (Kangaroo1)  
 
@@ -89,7 +92,9 @@ Tensegrity-2.ghx : (Kangaroo1)
 - AnchorXYZ : Set AnchorXYZ / AnchorPoint, X(bool), Y(bool), Z(bool)  
 - Angle : Set Angle / RestAngle = 最終の角度  
 - ClampLength : Keep Length in Range / Line, LowerLimit, UpperLimit  
+- Coincident : Equivalent to a zero length constraint between a pair of points / Point1, Point2  
 - Collider : Collisions between thickened line segments and spheres  
+- CoPlanar : ?  
 - CurvePointCollide : Keep a set of points outside or inside a given 2d curve  
 - Direction :  
 - Floor : xy Plane?  
@@ -116,15 +121,19 @@ Tensegrity-2.ghx : (Kangaroo1)
 
 #### ?  
 - AlignFaces : align faces of a pair of rigid body  
+- Beam : beam resisting bending and torsion  
 - CombineAndClean : Combine and Clean a list of meshes, removing unused and duplicate  
 - Concentric : align axis of a pair of rigid body  
 - EdgeLength : Set edge length / Mesh  
+- G2 : maintain curvature continuity between 2 nurbs curves / Points  
 - Hinge : Hinge  
 - HingePoint : get the 4 points for erch internal edge to use in a hinge force  
 - LoadVertex : Load に近い / Mesh, Strength(上or下)  
 - removeDuplicatePts : Removes Similar points from a list / P(List of points to clean)  
 - Rod : Resistant rod, Angle に似てる  
 - SolidPlaneCollide : Collision between a plane and a solid  
+- SplitAtCorners : break a polyline into multiple parts based "on angle" / Polyline, points(out)  
+- Support : set support conditions for a beam end or rigid body  
 - Volume : set volume  
 - Wind : Setting Wind / Mesh, WindVector  
 
@@ -140,6 +149,10 @@ Tensegrity-2.ghx : (Kangaroo1)
 
 
 ## Grasshopper Components  
+
+#### Curve  
+- Curvature Graph : Draws Rhino Curvature Graphs(曲率)  
+- Discontinuity : Find all dis-continuities along a curve  
 
 
 #### Math  
