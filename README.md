@@ -3,6 +3,7 @@ Sample Files
 Beam-Analysis.gh : Beam, Support, C#  
 Bending.ghx  
 Bending-GridShell.ghx : Angle, Load, OnCurve  
+Bending-Mesh-Angle.jpg : Angle, LineLength    
 Bending-Rod.ghx : Rod  
 Boxes-Mechanism.ghx : RigidBody  
 Catenary.ghx : Load  
@@ -15,6 +16,14 @@ Collision-CircleFill.ghx : Collider
 Collision-Cloth-inflatable.ghx : SphereCollide, Floor, Volume, CombineAndClean  
 Collision-Curve-X-Particle-2d.ghx : curvePointCollide, Load  
 Curve-to-Balloon.ghx : MeshMachine, Peressure, Anchor  
+Custom-Goal-1.ghx : c#  
+Custom-Goal-2.ghx : c#  
+Custom-Goal-PointCreation.ghx : c#, SurfaceClosetPoint  
+Custom-GoalDebugger.ghx : c#  
+Custom-GrowingLine.ghx : c#  
+Custom-Solver.ghx : c#  
+Custom-Solver-StepByStep.ghx : c#, NakedVertices  
+Custom-Solver-Tensile-Relax.ghx : c#  
 Directional-Stiffness.ghx : Hinge, SolidPointCollide  
 Drape-Grid.ghx : Load, SolidPointCollide, Floor  
 Flag-Wind.ghx : wind sim  
@@ -33,6 +42,10 @@ Strand-Beest.ghx : Trail, counter
 SplitAtCorners. ghx : SplitAtCorners, MeshCourners, Discontinuity  
 Tensegrity-1.ghx : (Kangaroo1)  
 Tensegrity-2.ghx : (Kangaroo1)  
+Tensile-Ridge-Beam.ghx : Anchor, Length, OnCurve  
+Tensile-Ridge-Cable.ghx : Anchor, LineLength  
+Tensile-Simple.ghx : Anchor, EdgeLength  
+Tensile-SoapFilm.ghx : SoapFilm, Tange
 
 
 ---  
@@ -61,6 +74,9 @@ Tensegrity-2.ghx : (Kangaroo1)
 - unaryForce : Set a vector force / Point, Vector  
 
 
+#### Mesh  
+- NakedVertices : 端点を探す？, Anchor に : Mesh(input)  
+
 ####  Utility  
 - MeshCourners : Finds the corners of the boundary of a mesh  
 - Trail : Draw a trail of a point's motion (trail 軌跡) / Point, Record(bool)  
@@ -88,7 +104,7 @@ Tensegrity-2.ghx : (Kangaroo1)
 
 
 #### Goals  
-- Anchor : Set Anchor / AnchorPoint  
+- Anchor : Set Anchor / AnchorPoint, TargetPoint(The 'P' input of the Anchor identifies which points to move, and the 'T' input tells it where to move them to.)  
 - AnchorXYZ : Set AnchorXYZ / AnchorPoint, X(bool), Y(bool), Z(bool)  
 - Angle : Set Angle / RestAngle = 最終の角度  
 - ClampLength : Keep Length in Range / Line, LowerLimit, UpperLimit  
@@ -159,6 +175,9 @@ Tensegrity-2.ghx : (Kangaroo1)
 - Entwine : Flatten and combine a collection of data streams  
 - Weave : Weave a set of input data using a custom pattern / P(pattern), data1, data2  
 
+#### Surface  
+- Surface Closest Point : Find the Closest point on surface / Point, Surface, uvP(out, PlaneNormal につなぐとよい)  
+
 
 #### Mesh  
  - Mesh WeldVertices : merge identical vertices, 同じ頂点をマージ(weld 溶接)  
@@ -167,6 +186,7 @@ Tensegrity-2.ghx : (Kangaroo1)
 #### Vector  
 - Closest Point : Find closest point in a point collection /P(Point), C(Cloud Point to search)  
 - Closest Points : Find closest points in a point collection / P(Point), C(Cloud Point to search),T   
+- PlaneNormal : Create a plane perpendicular to a vector  
 
 
 #### Set  
