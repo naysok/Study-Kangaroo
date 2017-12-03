@@ -42,10 +42,15 @@ Strand-Beest.ghx : Trail, counter
 SplitAtCorners. ghx : SplitAtCorners, MeshCourners, Discontinuity  
 Tensegrity-1.ghx : (Kangaroo1)  
 Tensegrity-2.ghx : (Kangaroo1)  
+Tensile-Cone.ghx : Refine, OnCruve, LineLength, CombineAndClean  
+Tensile-Diagonalize.ghx : Diagonalize, LineLength, Anchor  
 Tensile-Ridge-Beam.ghx : Anchor, Length, OnCurve  
 Tensile-Ridge-Cable.ghx : Anchor, LineLength  
 Tensile-Simple.ghx : Anchor, EdgeLength  
-Tensile-SoapFilm.ghx : SoapFilm, Tange
+Tensile-SoapFilm.ghx : SoapFilm, TangentialSmooth, Anchor, NakedVertices  
+Tensile-Tunnels.ghx : Refine, OnCurve, LineLength  
+Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength  
+
 
 
 ---  
@@ -74,14 +79,9 @@ Tensile-SoapFilm.ghx : SoapFilm, Tange
 - unaryForce : Set a vector force / Point, Vector  
 
 
-#### Mesh  
-- NakedVertices : 端点を探す？, Anchor に : Mesh(input)  
-
 ####  Utility  
 - MeshCourners : Finds the corners of the boundary of a mesh  
 - Trail : Draw a trail of a point's motion (trail 軌跡) / Point, Record(bool)  
-
-
 
 
 #### Mesh  
@@ -91,6 +91,8 @@ Tensile-SoapFilm.ghx : SoapFilm, Tange
   - FixV (Points to keep fixed during remeshing 外形など)  
   - Reset (Sequence = 10??)  
 - MeshMap :  Morphing / M1(SourceMesh), M2(TargetMesh), P(Vertices of mesh to transform)  
+- NakedVertices : 端点を探す？, Anchor に : Mesh(input)  
+- Refine : Divide each quad into 4 quad, and each triangle into 4 triangle / Mesh, Level(Level of Subdivision)  
 
 
 
@@ -140,6 +142,7 @@ Tensile-SoapFilm.ghx : SoapFilm, Tange
 - Beam : beam resisting bending and torsion  
 - CombineAndClean : Combine and Clean a list of meshes, removing unused and duplicate  
 - Concentric : align axis of a pair of rigid body  
+- Diagonalize : Replace each edge with a new face / Mesh  
 - EdgeLength : Set edge length / Mesh  
 - G2 : maintain curvature continuity between 2 nurbs curves / Points  
 - Hinge : Hinge  
@@ -147,11 +150,14 @@ Tensile-SoapFilm.ghx : SoapFilm, Tange
 - LoadVertex : Load に近い / Mesh, Strength(上or下)  
 - removeDuplicatePts : Removes Similar points from a list / P(List of points to clean)  
 - Rod : Resistant rod, Angle に似てる  
+-SoapFilm : area minimizing triangle, for generating zero mean curvature meshes, 領域が最小で、曲率が均一なメッシュ  
 - SolidPlaneCollide : Collision between a plane and a solid  
 - SplitAtCorners : break a polyline into multiple parts based "on angle" / Polyline, points(out)  
 - Support : set support conditions for a beam end or rigid body  
+- TangentialSmooth : smooth a mesh only in the local tangent plane, used in conjunction with "soapfilm"  
 - Volume : set volume  
 - Wind : Setting Wind / Mesh, WindVector  
+- WrapWeft : separate the edges of a mesh into 2 list according to wrap and weft direction / Mesh, ListA(out), ListB(out)  
 
 
 
