@@ -1,14 +1,20 @@
-Sample Files  
+**[ Sample Files ]**  
+
+[https://github.com/Dan-Piker/Kangaroo-examples](https://github.com/Dan-Piker/Kangaroo-examples)  
+
+
 
 Beam-Analysis.gh : Beam, Support, C#  
 Bending.ghx  
 Bending-GridShell.ghx : Angle, Load, OnCurve  
 Bending-Mesh-Angle.jpg : Angle, LineLength    
 Bending-Rod.ghx : Rod  
+Bomb.ghx : Bomb, SolidPlaneCollide, load, Floor, Anchor,  
 Boxes-Mechanism.ghx : RigidBody  
-Catenary.ghx : Load  
-Catenary_slide.ghx : LoadVertex  
-Catenary2.ghx : LoadVertex  
+Catenary-1.ghx : Load  
+Catenary-2.ghx : LoadVertex  
+Catenary-Galapagos.ghx : ZombieSlover, Garapagos
+Catenary-slide.ghx : LoadVertex  
 CirclePacking-OnSurface.ghx : Load,   
 ClampLength.ghx  
 Collision-Balloon.ghx : SolidPointCollide, Pressure, Floor  
@@ -35,8 +41,13 @@ Mesh-Shell-Hinge.ghx : HingePoint, Hinge
 MeshMachine-01.ghx : MeshMachine, removeDuplicatePts, Sequence  
 MeshMap-Morphing.ghx : MeshMap  
 Kangaroo1-vs-Kangaroo2.ghx : MeshCourners, SpringFromLine, unaryForce, StepSolover  
+Origami-1.ghx : Hinge, LineLength, Anchor  
+Origami-2.ghx : Hinge, LineLength, Anchor, Planarize  
+Origami-3.ghx : HingePoint, LineLength, Anchor, Planarize    
 Polygon-MagnetSnap.ghx : MagnetSnap  
+Raisin.ghx : Volume, Smooth, SphereCollide, Average, LineLength  
 RigidBody-Balance.jpg : RigitBody, SolidPlaneCollide  
+Set-Lengths-Random.ghx : LineLength  
 Simple-Tent-JH.ghx : load, anchor, length   
 Strand-Beest.ghx : Trail, counter  
 SplitAtCorners. ghx : SplitAtCorners, MeshCourners, Discontinuity  
@@ -124,7 +135,7 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 - OnPlane : Keep a point on a given plane / Point, Plane  
 - Pressure : A force normal to each triangle / Mesh, Strength  
 - RigidBody : RigidBody / Part(Mesh)  
-- Smooth : Smooth Mesh / Mesh, RB(output)  
+- Smooth : Smooth Mesh / Mesh  
 - SolidPointCollide : Keep a set of points outside or inside a given Mesh, Collision / pointList, Solid(brep or Mesh), Strength  
 - SphereCollide : Collisions between large numbers of equal sized spheres / Point, Radius  
 
@@ -134,12 +145,14 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 - Solver : Goal をまとめて計算  / GoalObjects  
 - Solver(bouncy) : Solver with momentum(弾力、弾み) / GoalObjects  
 - StepSolover : アニメーション?  
+- ZombieSolver : used in conjunction with "Garapagos"
 - Show : Show  
 
 
 #### ?  
 - AlignFaces : align faces of a pair of rigid body  
 - Beam : beam resisting bending and torsion  
+- Bomb : causes an explosion after given number of iterations / Location(explosion), Points(Affected by explosion), Detonation(FrameCount)  
 - CombineAndClean : Combine and Clean a list of meshes, removing unused and duplicate  
 - Concentric : align axis of a pair of rigid body  
 - Diagonalize : Replace each edge with a new face / Mesh  
@@ -148,6 +161,7 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 - Hinge : Hinge  
 - HingePoint : get the 4 points for erch internal edge to use in a hinge force  
 - LoadVertex : Load に近い / Mesh, Strength(上or下)  
+- Planarize  
 - removeDuplicatePts : Removes Similar points from a list / P(List of points to clean)  
 - Rod : Resistant rod, Angle に似てる  
 -SoapFilm : area minimizing triangle, for generating zero mean curvature meshes, 領域が最小で、曲率が均一なメッシュ  
@@ -155,7 +169,7 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 - SplitAtCorners : break a polyline into multiple parts based "on angle" / Polyline, points(out)  
 - Support : set support conditions for a beam end or rigid body  
 - TangentialSmooth : smooth a mesh only in the local tangent plane, used in conjunction with "soapfilm"  
-- Volume : set volume  
+- Volume : set volume / Mesh(mesh), Volume(value)  
 - Wind : Setting Wind / Mesh, WindVector  
 - WrapWeft : separate the edges of a mesh into 2 list according to wrap and weft direction / Mesh, ListA(out), ListB(out)  
 
@@ -172,12 +186,16 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 
 ## Grasshopper Components  
 
+#### Params  
+- Garapagos : genetic algorism / GeneticInput, FitnessInput  
+
 #### Curve  
 - Curvature Graph : Draws Rhino Curvature Graphs(曲率)  
 - Discontinuity : Find all dis-continuities along a curve  
 
 
 #### Math  
+- Average : Solve the arithmetic average for a set of items  
 - Entwine : Flatten and combine a collection of data streams  
 - Weave : Weave a set of input data using a custom pattern / P(pattern), data1, data2  
 
