@@ -16,9 +16,15 @@ Catenary-2.ghx : LoadVertex
 Catenary-Galapagos.ghx : ZombieSlover, Garapagos
 Catenary-slide.ghx : LoadVertex  
 CirclePacking-Fill.ghx : c#, OnMesh, Collider  
+CirclePacking-Image.ghx : ImageCircle  
 CirclePacking-OnSurface.ghx : Show, OnMesh, SphereCollide  
 CirclePacking-OnSurface-Pull.ghx : Show, OnMesh, SphereCollide, Anchor  
 ClampLength.ghx  
+Collision-Multi-Radius-Spheres.ghx : Collider  
+Collision-Multi-Radius-Spheres-Lines.ghx : Collider, LineLength  
+Collidion-Rigid-Mesh-X3.ghx : X2,X3,X4, SolidPlaneCollide, Load, RigitBody, SolidCollide  
+Collidion-Rigid-Mesh-X10.ghx : X10,X28, SolidPlaneCollide, Load, RigitBody, SolidCollide  
+Collidion-Rigid-Solid.ghx : X16, SolidPlaneCollide, Load, RigitBody, SolidCollide  
 Collision-2D-Shapes.ghx : Collide2d, PolygonArea, OnPlane, LineLength  
 Collision-Balloon.ghx : SolidPointCollide, Pressure, Floor  
 Collision-Cable.ghx : LineLength, Collider  
@@ -27,7 +33,9 @@ Collision-Cloth-Drape-XXX.ghx : SolidPointCollide, load, Smooth, Floor, LineLeng
 Collision-Cloth-inflatable.ghx : SphereCollide, Floor, Volume, CombineAndClean  
 Collision-Cloth-Grabe.ghx : EdgeLength, SphereCollide  
 Collision-Curve-X-Particle-2d.ghx : curvePointCollide, Load  
+Collision-Floor.ghx : SphereCollide, Floor, load  
 Collision-Simple.ghx : ClampLength  
+Collision-Solid-X-Particle.ghx : SolidPointCollide, SphereCollide, Load  
 Curve-to-Balloon.ghx : MeshMachine, Peressure, Anchor  
 Custom-Goal-1.ghx : c#  
 Custom-Goal-2.ghx : c#  
@@ -130,7 +138,7 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 - ClampLength : Keep Length in Range / Line, LowerLimit, UpperLimit  
 - Coincident : Equivalent to a zero length constraint between a pair of points / Point1, Point2  
 - Collide2d : Collisions between closed polygons in a given plane / polyline  
-- Collider : Collisions between thickened line segments and spheres / Objects  
+- Collider : Collisions between thickened line segments and spheres / Objects, Radius(Multi-Radius OK?, SphereCollide 違う)  
 - CoPlanar : ?  
 - CurvePointCollide : Keep a set of points outside or inside a given 2d curve  
 - Direction :  
@@ -143,10 +151,11 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 - OnPlane : Keep a point on a given plane / Point, Plane  
 - Pressure : A force normal to each triangle / Mesh, Strength  
 - PolygonArea : SetArea (Volume の 2d ver)  
-- RigidBody : RigidBody / Part(Mesh)  
+- RigidBody : RigidBody / Part(Mesh), Points(optional??)  
 - Smooth : Smooth Mesh / Mesh  
+- SolidCollide : collision between a pair of solid, 前でCrossReference / MeshA, MeshB  
 - SolidPointCollide : Keep a set of points outside or inside a given Mesh, Collision / pointList, Solid(brep or Mesh), Strength  
-- SphereCollide : Collisions between large numbers of equal sized spheres / Point, Radius  
+- SphereCollide : Collisions between large numbers of equal sized spheres / Point, Radius(Multi-Radius NG? Collider と違う)  
 
 
 #### Main  
@@ -169,13 +178,14 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 - G2 : maintain curvature continuity between 2 nurbs curves / Points  
 - Hinge : Hinge  
 - HingePoint : get the 4 points for erch internal edge to use in a hinge force  
+- ImageCircle : Circle packing with sizes from image colours / Mesh(with color), Crvs(area)  
 - LoadVertex : Load に近い / Mesh, Strength(上or下)  
 - Planarize  
 - removeDuplicatePts : Removes Similar points from a list / P(List of points to clean)  
 - Rod : Resistant rod, Angle に似てる  
 - RigidPointSet : a set of points which maintain their relative positions  
 - SoapFilm : area minimizing triangle, for generating zero mean curvature meshes, 領域が最小で、曲率が均一なメッシュ  
-- SolidPlaneCollide : Collision between a plane and a solid  
+- SolidPlaneCollide : Collision between a plane and a solid, Floor に近い?  
 - SplitAtCorners : break a polyline into multiple parts based "on angle" / Polyline, points(out)  
 - Support : set support conditions for a beam end or rigid body  
 - TangentialSmooth : smooth a mesh only in the local tangent plane, used in conjunction with "soapfilm"  
@@ -220,6 +230,7 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 #### Vector  
 - Closest Point : Find closest point in a point collection /P(Point), C(Cloud Point to search)  
 - Closest Points : Find closest points in a point collection / P(Point), C(Cloud Point to search),T   
+- Cull Duplicate : Cull point that are coincident within torerance / points(list of point)  
 - PlaneNormal : Create a plane perpendicular to a vector  
 
 
