@@ -15,12 +15,19 @@ Catenary-1.ghx : Load
 Catenary-2.ghx : LoadVertex  
 Catenary-Galapagos.ghx : ZombieSlover, Garapagos
 Catenary-slide.ghx : LoadVertex  
-CirclePacking-OnSurface.ghx : Load,   
+CirclePacking-Fill.ghx : c#, OnMesh, Collider  
+CirclePacking-OnSurface.ghx : Show, OnMesh, SphereCollide  
+CirclePacking-OnSurface-Pull.ghx : Show, OnMesh, SphereCollide, Anchor  
 ClampLength.ghx  
+Collision-2D-Shapes.ghx : Collide2d, PolygonArea, OnPlane, LineLength  
 Collision-Balloon.ghx : SolidPointCollide, Pressure, Floor  
-Collision-CircleFill.ghx : Collider  
+Collision-Cable.ghx : LineLength, Collider  
+Collision-Chain.ghx : RigidPointSet, Collider  
+Collision-Cloth-Drape-XXX.ghx : SolidPointCollide, load, Smooth, Floor, LineLength  
 Collision-Cloth-inflatable.ghx : SphereCollide, Floor, Volume, CombineAndClean  
+Collision-Cloth-Grabe.ghx : EdgeLength, SphereCollide  
 Collision-Curve-X-Particle-2d.ghx : curvePointCollide, Load  
+Collision-Simple.ghx : ClampLength  
 Curve-to-Balloon.ghx : MeshMachine, Peressure, Anchor  
 Custom-Goal-1.ghx : c#  
 Custom-Goal-2.ghx : c#  
@@ -45,7 +52,7 @@ Origami-1.ghx : Hinge, LineLength, Anchor
 Origami-2.ghx : Hinge, LineLength, Anchor, Planarize  
 Origami-3.ghx : HingePoint, LineLength, Anchor, Planarize    
 Polygon-MagnetSnap.ghx : MagnetSnap  
-Raisin.ghx : Volume, Smooth, SphereCollide, Average, LineLength  
+Raisin.ghx : Volume, Smooth, SphereCollide, Average, LineLength しぼむ  
 RigidBody-Balance.jpg : RigitBody, SolidPlaneCollide  
 Set-Lengths-Random.ghx : LineLength  
 Simple-Tent-JH.ghx : load, anchor, length   
@@ -122,18 +129,20 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 - Angle : Set Angle / RestAngle = 最終の角度  
 - ClampLength : Keep Length in Range / Line, LowerLimit, UpperLimit  
 - Coincident : Equivalent to a zero length constraint between a pair of points / Point1, Point2  
-- Collider : Collisions between thickened line segments and spheres  
+- Collide2d : Collisions between closed polygons in a given plane / polyline  
+- Collider : Collisions between thickened line segments and spheres / Objects  
 - CoPlanar : ?  
 - CurvePointCollide : Keep a set of points outside or inside a given 2d curve  
 - Direction :  
 - Floor : xy Plane?  
 - Length(Line) : Set Length  / Line  
-- Load : Set Force Vector / Point, ForceVector  
+- Load : Set Force Vector / Point(DeconstructMesh の V とか), ForceVector  
 - MagnetSnap : Snap Points togetther according to proximity / Points, Renge(snapable length)  
 - OnCurve : Keep a point on a given curve  
 - OnMesh : Keeping Pt on Mesh / Point, Mesh  
 - OnPlane : Keep a point on a given plane / Point, Plane  
 - Pressure : A force normal to each triangle / Mesh, Strength  
+- PolygonArea : SetArea (Volume の 2d ver)  
 - RigidBody : RigidBody / Part(Mesh)  
 - Smooth : Smooth Mesh / Mesh  
 - SolidPointCollide : Keep a set of points outside or inside a given Mesh, Collision / pointList, Solid(brep or Mesh), Strength  
@@ -164,7 +173,8 @@ Tensile-Tunnels-WarpWeft.ghx : WrapWeft, Refine, OnCurve, LineLength
 - Planarize  
 - removeDuplicatePts : Removes Similar points from a list / P(List of points to clean)  
 - Rod : Resistant rod, Angle に似てる  
--SoapFilm : area minimizing triangle, for generating zero mean curvature meshes, 領域が最小で、曲率が均一なメッシュ  
+- RigidPointSet : a set of points which maintain their relative positions  
+- SoapFilm : area minimizing triangle, for generating zero mean curvature meshes, 領域が最小で、曲率が均一なメッシュ  
 - SolidPlaneCollide : Collision between a plane and a solid  
 - SplitAtCorners : break a polyline into multiple parts based "on angle" / Polyline, points(out)  
 - Support : set support conditions for a beam end or rigid body  
