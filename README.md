@@ -37,7 +37,7 @@ Collision-Cable.ghx : LineLength, Collider
 Collision-Chain.ghx : RigidPointSet, Collider  
 Collision-Cloth-Drape-XXX.ghx : SolidPointCollide, load, Smooth, Floor, LineLength  
 Collision-Cloth-inflatable.ghx : SphereCollide, Floor, Volume, CombineAndClean  
-Collision-Cloth-inflatable-2.ghx : SphereCollide, Floor, Volume, CombineAndClean  
+Collision-Cloth-inflatable-2.ghx : SolidPointCollide, SphereCollide, Floor, Volume, CombineAndClean  
 Collision-Cloth-Grabe.ghx : EdgeLength, SphereCollide  
 Collision-Curve-X-Particle-2d.ghx : curvePointCollide, Load  
 Collision-Floor.ghx : SphereCollide, Floor, load  
